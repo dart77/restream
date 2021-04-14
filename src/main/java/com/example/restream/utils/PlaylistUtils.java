@@ -49,8 +49,7 @@ public class PlaylistUtils {
     }
 
     public MasterPlaylist createMasterPlayList() throws IOException {
-        String path = "src/main/resources/fragments/";
-        List<String> files = Files.list(Paths.get(path))
+        List<String> files = Files.list(Paths.get(config.getFragmentsLocation()))
                 .map(Path::getFileName).map(Path::toString).sorted().collect(Collectors.toList());
 
         return MasterPlaylist.builder()
